@@ -6,65 +6,69 @@
 ">>=<><" => 5
 ">>><><<><<>>==<>==<><<>><><>=><=" => 26*/
 
-$s = "><><";
-$sl = strlen($s);
-echo $sl. "<br>";
+$st = "><><";
+function CalCrashes($s) : void
+{
 
-/*Crashes Counter*/
-$cc = null;
+    $sl = strlen($s);
+    echo $sl . "<br>";
 
-/*Potential crash*/
-$pc = null;
+    /*Crashes Counter*/
+    $cc = null;
 
-/*Total Crashed*/
-$tc = null;
+    /*Potential crash*/
+    $pc = null;
 
-/*UCrashes*/
-$uc = null;
+    /*Total Crashed*/
+    $tc = null;
 
-
-
-for ($i=0; $i<$sl; $i++){
-    if ( ($s[$i] == '>') && ($s[$i+1] == '<') ) {
-         $cc +=2;
-        echo $cc."HeadOn". $s[$i].$s[$i+1]."<br>";
-
-    }   elseif ( ($s[$i] == '>') && ($s[$i+1] == '=') ) {
-        $cc++;
-        echo $cc."RightR ". $s[$i].$s[$i+1]."<br>";
-
-    } elseif ( ($s[$i] == '=') && ($s[$i+1] == '<') ) {
-        $cc++;
-        echo $cc."LeftR". $s[$i].$s[$i+1]."<br>";
+    /*UCrashes*/
+    $uc = null;
 
 
-    }  elseif ( ($s[$i] == '<') && ($s[$i+1] == '=') ) {
-        $uc++;
-        echo "No Accident". $s[$i].$s[$i+1]."<br>";
+    for ($i = 0; $i < $sl; $i++) {
+        if (($s[$i] == '>') && ($s[$i + 1] == '<')) {
+            $cc += 2;
+            echo $cc . "HeadOn" . $s[$i] . $s[$i + 1] . "<br>";
+
+        } elseif (($s[$i] == '>') && ($s[$i + 1] == '=')) {
+            $cc++;
+            echo $cc . "RightR " . $s[$i] . $s[$i + 1] . "<br>";
+
+        } elseif (($s[$i] == '=') && ($s[$i + 1] == '<')) {
+            $cc++;
+            echo $cc . "LeftR" . $s[$i] . $s[$i + 1] . "<br>";
 
 
-    }  elseif ( ($s[$i] == '=') && ($s[$i+1] == '>') ) {
-        $uc++;
-        echo "No Accident". $s[$i].$s[$i+1]."<br>";
+        } elseif (($s[$i] == '<') && ($s[$i + 1] == '=')) {
+            $uc++;
+            echo "No Accident" . $s[$i] . $s[$i + 1] . "<br>";
 
 
-    } elseif ( ($s[$i] == '<') && ($s[$i+1] == '>') ) {
-        $uc++;
-        echo "No Accident". $s[$i].$s[$i+1]."<br>";
+        } elseif (($s[$i] == '=') && ($s[$i + 1] == '>')) {
+            $uc++;
+            echo "No Accident" . $s[$i] . $s[$i + 1] . "<br>";
 
 
-    } elseif ( ($s[$i] == '=') && ($s[$i+1] == '=') ) {
-        $uc++;
-        echo "No Accident". $s[$i].$s[$i+1]."<br>";
+        } elseif (($s[$i] == '<') && ($s[$i + 1] == '>')) {
+            $uc++;
+            echo "No Accident" . $s[$i] . $s[$i + 1] . "<br>";
 
 
-    } elseif ($s[$i] == $s[$i+1]){
-        $pc++;
-        echo $pc."p Accident"."<br>";
+        } elseif (($s[$i] == '=') && ($s[$i + 1] == '=')) {
+            $uc++;
+            echo "No Accident" . $s[$i] . $s[$i + 1] . "<br>";
+
+
+        } elseif ($s[$i] == $s[$i + 1]) {
+            $pc++;
+            echo $pc . "p Accident" . "<br>";
+        }
+        $tc = $cc + $pc;
     }
-    $tc =  $cc + $pc ;
+    echo $uc . "<br>";
+    echo $cc . "<br>";
+    echo $pc . "<br>";
+    echo $tc . "<br>";
 }
-echo $uc . "<br>";
-echo $cc . "<br>";
-echo $pc . "<br>";
-echo $tc . "<br>";
+ CalCrashes($st);

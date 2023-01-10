@@ -7,7 +7,7 @@
 ">>><><<><<>>==<>==<><<>><><>=><=" => 26*/
 
 $st = "><><";
-function CalCrashes($s) : void
+function CalCrashes($s) :string
 {
 
     $sl = strlen($s);
@@ -70,5 +70,6 @@ function CalCrashes($s) : void
     echo $cc . "<br>";
     echo $pc . "<br>";
     echo $tc . "<br>";
+    return $tc ;
 }
  CalCrashes($st);
